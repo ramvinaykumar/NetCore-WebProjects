@@ -1,0 +1,46 @@
+﻿@model List<mvc.crud.netcore6.webprojects.learning.Models.Domain.Student>
+@{
+}
+<h1>Students</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Enrollment No</th>
+            <th>Name</th>
+            <th>Grade - Section - House </th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Date Of Birth</th>
+            <th>Mobile No</th>
+            <th>Blood Group</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            var tm = "#myModal" + student.Id;
+            var mid = "myModal" + student.Id;
+
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.EnrollmentNumber</td>
+                <td>@student.Name</td>
+                <td>@student.Grade - @student.Section - @student.HouseGroup</td>
+                <td>@student.Email</td>
+                <td>@student.Gender</td>
+                <td>@student.Dob.Value.ToString("dd-MMM-yyyy")</td>
+                <td>@student.MobileNo</td>
+                <td>@student.BloodGroup</td>
+                <td>
+                    @* <a href="Student/Edit/@student.Id">View</a> *@
+                    <form asp-action="Delete" asp-route-id="@student.Id" method="post">
+                        <a asp-action="Edit" asp-controller="Student" asp-route-id="@student.Id" class="btn btn-primary">Edit</a>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete this student : @student.Name ')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

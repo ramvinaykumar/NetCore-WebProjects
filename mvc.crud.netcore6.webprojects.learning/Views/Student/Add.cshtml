@@ -1,0 +1,65 @@
+﻿@model AddEditStudentViewModel
+@{
+}
+<h1>Add Student Detail</h1>
+<form method="post" action="Add" class="mt-3 ">
+    <div class="row">
+        <div class="col-6">
+            <label for="studentName" class="form-label">Student Name</label>
+            <input type="text" class="form-control" asp-for="Name">
+        </div>
+        <div class="col-6">
+            <label for="enrollmentNumber" class="form-label">Enrollment Number</label>
+            <input type="text" class="form-control" asp-for="EnrollmentNumber">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label for="studentEmail" class="form-label">Student Email</label>
+            <input type="email" class="form-control" asp-for="Email">
+        </div>
+        <div class="col-6">
+            <label for="mobileNumber" class="form-label">Mobile Number</label>
+            <input type="number" class="form-control" asp-for="MobileNo">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label for="studentGrade" class="form-label">Class / Grade</label>
+            <input type="text" class="form-control" asp-for="Grade">
+        </div>
+        <div class="col-6">
+            <label for="gradeSection" class="form-label">Section</label>
+            <input type="text" class="form-control" asp-for="Section">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+            <input type="date" class="form-control" asp-for="DateOfBirth">
+        </div>
+        <div class="col-6">
+            <label for="houseGroup" class="form-label">House Group</label>
+            <input type="text" class="form-control" asp-for="HouseGroup">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label for="studentGender" class="form-label">Student Gender</label>
+            <input type="text" class="form-control" asp-for="Gender">
+        </div>
+        <div class="col-6">
+            <label for="bloodGroup" class="form-label">Blood Group</label>
+            <input type="text" class="form-control" asp-for="BloodGroup">
+        </div>
+    </div>
+    <div class="row">&nbsp; </div>
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn btn-warning">Cancel</button>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
