@@ -1,0 +1,18 @@
+﻿This is a code first approach mvc crud application. To run this, we need to follow the below steps:
+
+Install the below packages from Nuget
+
+1. Microsoft.EntityFrameworkCore.SqlServer
+2. Microsoft.EntityFrameworkCore.Tools
+
+Since, DB entities already in model folder, then we can just add / update the DB connection string in appSetting.Json file
+like below example:
+
+"DbConnection": "Data Source=Your_DB_Server_Name;Initial Catalog=Your_DB_Name;Persist Security Info=True;User ID=DB_User_Name;Password=DB_Password;TrustServerCertificate=True;"
+
+After, these all run the below command in "Package Manager Console"
+
+1. Add-Migration "CreatedProductTable"
+2. Update-Database
+
+Once, these completed, check your database and check whether table is created or not

@@ -1,0 +1,48 @@
+﻿@model List<MVC.NetCore8.WebSite.Models.DbEntities.Product>
+@{
+}
+<h2 class="text-center mb-5">List of Products</h2>
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="Products" asp-action="Create">New Product</a>
+    </div>
+    <div class="col">
+    </div>
+</div>
+
+<!-- Product data being display in grid (tabular format) -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Created On</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Brand</td>
+                <td>@product.Category</td>
+                <td>@(product.Price)₹</td>
+                <td><img src="/ProductImages/@product.ImageFileName" width="100" title="@product.Name" /></td>
+                <td>@product.CreatedOn.ToString("dd-MMM-yyyy")</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="Products" 
+                    asp-route-id="@product.Id" asp-action="Edit">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Products"
+                       asp-route-id="@product.Id" asp-action="Delete" onclick="return confirm('Are you sure to delete this : @product.Name')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
