@@ -6,11 +6,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// When we want to use Database, uncomment the below line
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//{
+//    var connectionString = builder.Configuration.GetConnectionString("DbConnection");
+//    options.UseSqlServer(connectionString);
+//});
+
+// When we want to use In-Memory, uncomment the below line
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    {
-        var connectionString = builder.Configuration.GetConnectionString("DbConnection");
-        options.UseSqlServer(connectionString);
-    });
+{
+    options.UseInMemoryDatabase("MvcCrud_InMemoryDb");
+});
 
 var app = builder.Build();
 

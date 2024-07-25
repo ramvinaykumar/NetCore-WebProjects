@@ -26,22 +26,31 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var product in Model)
+        @if (Model.Count > 0)
         {
-            <tr>
-                <td>@product.Id</td>
-                <td>@product.Name</td>
-                <td>@product.Brand</td>
-                <td>@product.Category</td>
-                <td>@(product.Price)₹</td>
-                <td><img src="/ProductImages/@product.ImageFileName" width="100" title="@product.Name" /></td>
-                <td>@product.CreatedOn.ToString("dd-MMM-yyyy")</td>
-                <td style="white-space:nowrap">
-                    <a class="btn btn-primary btn-sm" asp-controller="Products" 
-                    asp-route-id="@product.Id" asp-action="Edit">Edit</a>
-                    <a class="btn btn-danger btn-sm" asp-controller="Products"
-                       asp-route-id="@product.Id" asp-action="Delete" onclick="return confirm('Are you sure to delete this : @product.Name')">Delete</a>
-                </td>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Brand</td>
+                    <td>@product.Category</td>
+                    <td>@(product.Price)₹</td>
+                    <td><img src="/ProductImages/@product.ImageFileName" width="100" title="@product.Name" /></td>
+                    <td>@product.CreatedOn.ToString("dd-MMM-yyyy")</td>
+                    <td style="white-space:nowrap">
+                        <a class="btn btn-primary btn-sm" asp-controller="Products"
+                           asp-route-id="@product.Id" asp-action="Edit">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Products"
+                           asp-route-id="@product.Id" asp-action="Delete" onclick="return confirm('Are you sure to delete this : @product.Name')">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr style="color:red;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:larger;text-align:center;">
+                <td colspan="9">There is no record available.</td>
             </tr>
         }
     </tbody>

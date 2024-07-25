@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "http": {
+    "MVC.NetCore8.WebSite": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
